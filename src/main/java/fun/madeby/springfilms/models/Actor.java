@@ -21,9 +21,12 @@ public class Actor {
 	private String name;
 	@ManyToMany(mappedBy = "cast", fetch = FetchType.EAGER)
 	private Set<Film> films = new HashSet<>();
+	@Column(name="MugShotUrl", columnDefinition = "VARCHAR(250)")
+	private String mugShotUrl;
 
-	public Actor(String name) {
+	public Actor(String name, String mugShotUrl) {
 		this.name = name;
+		this.mugShotUrl = mugShotUrl;
 	}
 
 	public void addFilm(Film film) {

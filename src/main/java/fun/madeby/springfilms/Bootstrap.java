@@ -27,19 +27,21 @@ public class Bootstrap {
 	public void init(){
 		// Make Actors
 		List<Actor> actors = new ArrayList<>(Arrays.asList(
-			new Actor("Robert DeNiro"),
-			new Actor("Al Pacino")
+			new Actor("Robert DeNiro", "https://loremflickr.com/320/240"),
+			new Actor("Al Pacino",  "https://loremflickr.com/320/240")
 		));
 		actorService.register(actors);
 		// Make Films
 		Film myFilm = new Film();
 		myFilm.setTitle("The Lord of the Rings: The Return of the King");
 		myFilm.setReleaseDate(LocalDate.of(2003, Month.NOVEMBER, 1));
+		myFilm.setFilmImageUrl("https://loremflickr.com/320/240");
 		filmService.register(myFilm);
 		Film myOtherFilm = new Film();
 		myOtherFilm.setTitle("Heat");
 		myOtherFilm.setReleaseDate(LocalDate.of(1996, Month.FEBRUARY, 14));
 		myOtherFilm.addActors(actors);
+		myOtherFilm.setFilmImageUrl("https://loremflickr.com/320/240");
 		filmService.register(myOtherFilm);
 
 

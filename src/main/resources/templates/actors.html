@@ -15,14 +15,22 @@
 <body>
 <h1>All Actors in database: </h1>
 <section>
-  <table>
+<!--  <table>
     <tr th:each="actor : ${gaggleOfWoke}">
       <td th:text="${actor.name}">
 This will never show!
       </td>
     </tr>
-  </table>
+  </table>-->
 
+  <div class="card" th:each="actor : ${gaggleOfWoke}">
+    <img class="card-img-top w-50 d-block" th:src="${actor.getMugShotUrl()}">
+    <div class="card-body">
+      <h4 class="card-title" th:text="${actor.name}">Title</h4>
+
+      <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button">Button</button>
+    </div>
+  </div>
 
 </section>
 </body>

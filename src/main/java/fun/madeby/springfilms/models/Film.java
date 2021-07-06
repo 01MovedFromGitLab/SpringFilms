@@ -28,6 +28,8 @@ public class Film {
 					joinColumns = @JoinColumn(name = "film_id"),
 					inverseJoinColumns = @JoinColumn(name = "actor_id"))
 	private Set<Actor> cast = new HashSet<>();
+	@Column(name="FilmImageUrl", columnDefinition = "VARCHAR(250)")
+	private String filmImageUrl;
 
 	// Reciprocal method ensures both sides of ManyToMany are up to date.
 	public void addActor(Actor actor) {
