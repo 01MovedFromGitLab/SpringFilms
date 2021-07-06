@@ -1,0 +1,21 @@
+<header th:fragment="header">
+  <meta charset = "UTF-8">
+  <th:block th:include="fragments/cdn.html :: head-bs"></th:block>
+  <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
+  <nav class="navbar navbar-light navbar-expand-md bg-white shadow">
+    <div class="container"><a class="navbar-brand" th:href="@{'/'}">SpringFilm</a><button
+    data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+    class="visually-hidden">Toggle navigation</span>
+      <span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" th:href="@{'/films'}">Films</a></li>
+          <li class="nav-item"><a class="nav-link active" th:href="@{'/actors'}">Actors</a></li>
+          <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">tbc</a></li>
+          <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">tbc2</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
