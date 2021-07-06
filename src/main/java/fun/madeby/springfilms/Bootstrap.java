@@ -16,14 +16,14 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-//@Profile("dev")
-@RequiredArgsConstructor // whatever required constructed by lombok
+//@Profile("dev") // Look into this and have dev/prod
+@RequiredArgsConstructor
 public class Bootstrap {
 	private final FilmService filmService;
 	private final ActorService actorService;
 
-
-@PostConstruct // used on methods that need to executed AFTER dependency injection used for any initialization.
+// Currently switched off
+//@PostConstruct
 	public void init(){
 		// Make Actors
 		List<Actor> actors = new ArrayList<>(Arrays.asList(

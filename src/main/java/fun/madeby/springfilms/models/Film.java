@@ -18,6 +18,7 @@ public class Film {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Column(name = "Title", columnDefinition = "VARCHAR(100) NOT NULL")
 	private String title;
 	@Column(name = "ReleaseDate", columnDefinition = "DATE NOT NULL")
 	private LocalDate releaseDate;

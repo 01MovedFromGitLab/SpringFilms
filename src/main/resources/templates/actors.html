@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"></html>
+
+<head>
+  <meta charset = "UTF-8">
+  <title>Actor List</title>
+</head>
+<body>
+<h1>All Actors in database: </h1>
+<section>
+  <table>
+    <tr th:each="actor : ${gaggleOfWoke}">
+      <td th:text="${actor.name}">
+This will never show!
+      </td>
+    </tr>
+  </table>
+
+
+</section>
+</body>
