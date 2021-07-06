@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Film Detail</title>
+  <th:block th:include="fragments/cdn.html :: head-bs"></th:block>
+  <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
+</head>
+<header>
+  <div th:replace="fragments/header.html::header"></div>
+</header>
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+      th:src="${wigwam.filmImageUrl}"
+      alt="..."
+      class="img-fluid"/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" th:text="${wigwam.title}">Card title</h5>
+        <p class="card-text" th:text="${wigwam.releaseDate.getYear()}"></p>
+        <div th:each="ocelot : ${wigwam.getCast()}">
+          <h5 class="card-title" th:text="${ocelot.name}">Card title</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<body>
+
+</body>
+</html>

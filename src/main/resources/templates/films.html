@@ -2,11 +2,14 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
-<header>
-  <div th:replace="fragments/header.html::header"></div>
+<head>
+  <meta charset="UTF-8">
+  <title>Film List</title>
   <th:block th:include="fragments/cdn.html :: head-bs"></th:block>
   <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
+</head>
+<header>
+  <div th:replace="fragments/header.html::header"></div>
 </header>
 <title>Film List</title>
 <body>
@@ -26,7 +29,11 @@
           <h5 class="card-title" th:text="${film.title}">Card title</h5>
           <p class="card-text" th:text="${film.releaseDate.getYear()}"></p>
           <p class="card-text">
-            <small class="text-muted">some other info</small>
+            <small class="text-muted">
+              <span>Detail:</span><br>
+            <a  th:href="@{'/films/' + ${film.id} }"
+                th:text="${film.title}"></a>
+            </small>
           </p>
         </div>
       </div>

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -25,5 +26,13 @@ public String allFilmsRequested(Model model) {
 	return "films";
 }
 
+@GetMapping("/films/{id}")
+public String specificFilmRequested(Model model, @PathVariable Long id) {
+	Film film = filmService.retrieveById(id);
+	System.out.println(film.getCast());
+	model.addAttribute("wigwam", film);
+
+	return "filmDetail";
+}
 
 }
