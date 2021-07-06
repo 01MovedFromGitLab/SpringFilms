@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,14 @@ public class Film {
 		this.cast.add(actor);
 		if(!actor.getFilms().contains(this)) {
 			actor.addFilm(this);
+		}
+	}
+	public void addActors(List<Actor> actorList) {
+		for(Actor a: actorList) {
+			this.cast.add(a);
+		if(!a.getFilms().contains(this))	{
+			a.addFilm(this);
+		}
 		}
 	}
 
