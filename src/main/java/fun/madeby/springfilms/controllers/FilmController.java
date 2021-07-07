@@ -40,12 +40,19 @@ public String postFilmRequested(Model model,
 	return "newFilmForm";
 }*/
 
-// POST how Spring lets you do it:
+/*// POST how Spring lets you do it but release Year fails so have to handle yourself:
 @PostMapping(value="/films/new")
 public String postFilmRequest(Film film,
                               @RequestParam("releaseYear") String releaseYear) {
 	int year = Integer.parseInt(releaseYear);
 	film.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
+	filmService.register(film);
+	return "newFilmForm";
+}*/
+
+// POST how Spring Handled as a FORM object now we've added dateFormatter
+@PostMapping(value="/films/new")
+public String postFilmRequest(Film film) {
 	filmService.register(film);
 	return "newFilmForm";
 }

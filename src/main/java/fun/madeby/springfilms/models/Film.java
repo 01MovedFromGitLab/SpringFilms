@@ -3,6 +3,7 @@ package fun.madeby.springfilms.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class Film {
 	@Column(name = "Title", columnDefinition = "VARCHAR(100) NOT NULL")
 	private String title;
 	@Column(name = "ReleaseDate", columnDefinition = "DATE NOT NULL")
+	@DateTimeFormat(pattern = "yyyy")
 	private LocalDate releaseDate;
 	// Dominant side
 	@ManyToMany
