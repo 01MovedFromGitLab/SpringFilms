@@ -1,5 +1,6 @@
 package fun.madeby.springfilms.services;
 
+import fun.madeby.springfilms.models.Actor;
 import fun.madeby.springfilms.models.Film;
 import fun.madeby.springfilms.repositories.FilmRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,10 @@ public Film retrieveById(Long id) {
 @Override
 public List<Film> retrieveAll() {
 	return filmRepo.findAll();
+}
+
+@Override
+public List<Film> searchFilms(String titleSearchTerm) {
+	return filmRepo.findFilmByTitleIsLike("%" + titleSearchTerm + "%");
 }
 }
