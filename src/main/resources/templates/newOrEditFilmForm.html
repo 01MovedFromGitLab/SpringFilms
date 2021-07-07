@@ -19,13 +19,13 @@
         <form action="" th:action="@{/films/new}" th:object="${sorgum}" method="post" >
 
           <div class="input-group mb-3"><span class="input-group-text">
-                        Film to add:</span><input th:field="*{sorgum.title}" type="text" class="form-control"/>
+                        Film to add:</span><input th:field="*{title}" type="text" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Release date:</span><input th:field="*{sorgum.releaseDate}" type="date" class="form-control"/>
+                        Release date:</span><input th:field="*{releaseDate}" type="date" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Poster url:</span><input th:field="*{sorgum.filmImageUrl}" type="text" class="form-control"/>
+                        Poster url:</span><input th:field="*{filmImageUrl}" type="text" class="form-control"/>
           </div>
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
 @Controller
@@ -24,39 +22,15 @@ public class FilmController {
 public String newFilmForm(Model model) {
 	// give view a Film model to map against
 	model.addAttribute("sorgum", new Film());
-	return "newFilmForm";
+	return "newOrEditFilmForm";
 }
 
-// POST how you'd expect to do it.
-/*@PostMapping(value="/films/new")
-public String postFilmRequested(Model model,
-                                @RequestParam String title,
-                                @RequestParam("releaseYear") String releaseYear,
-                                @RequestParam("filmImageUrl") String filmImageUrl) {
-	Film newFilm = new Film();
-	newFilm.setTitle(title);
-	int year = Integer.parseInt(releaseYear);
-	newFilm.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
-	newFilm.setFilmImageUrl(filmImageUrl);
-	filmService.register(newFilm);
-	return "newFilmForm";
-}*/
 
-/*// POST how Spring lets you do it but release Year fails so have to handle yourself:
-@PostMapping(value="/films/new")
-public String postFilmRequest(Film film,
-                              @RequestParam("releaseYear") String releaseYear) {
-	int year = Integer.parseInt(releaseYear);
-	film.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
-	filmService.register(film);
-	return "newFilmForm";
-}*/
-
-// THIS did  work POST if you enter whole date. Handled as a FORM object now we've added dateFormatter
+// See earlier versions below
 @PostMapping(value="/films/new")
 public String postFilmRequest(Film film) {
 	filmService.register(film);
-	return "newFilmForm";
+	return "newOrEditFilmForm";
 }
 
 // Route & GET
@@ -89,3 +63,29 @@ public String searchFilmRequested(Model model,
 
 
 }
+
+//Earlier post versions for reference
+// POST how you'd expect to do it.
+/*@PostMapping(value="/films/new")
+public String postFilmRequested(Model model,
+                                @RequestParam String title,
+                                @RequestParam("releaseYear") String releaseYear,
+                                @RequestParam("filmImageUrl") String filmImageUrl) {
+	Film newFilm = new Film();
+	newFilm.setTitle(title);
+	int year = Integer.parseInt(releaseYear);
+	newFilm.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
+	newFilm.setFilmImageUrl(filmImageUrl);
+	filmService.register(newFilm);
+	return "newFilmForm";
+}*/
+
+/*// POST how Spring lets you do it but release Year fails so have to handle yourself:
+@PostMapping(value="/films/new")
+public String postFilmRequest(Film film,
+                              @RequestParam("releaseYear") String releaseYear) {
+	int year = Integer.parseInt(releaseYear);
+	film.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
+	filmService.register(film);
+	return "newFilmForm";
+}*/
