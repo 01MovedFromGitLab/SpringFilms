@@ -16,7 +16,7 @@ public class Actor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@Column(name = "Name", columnDefinition = "VARCHAR(100) NOT NULL")
 	private String name;
 	@ManyToMany(mappedBy = "cast", fetch = FetchType.EAGER)

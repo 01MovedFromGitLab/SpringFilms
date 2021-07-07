@@ -16,17 +16,18 @@
 
       <div class="col-lg-6">
         <div class="row align-content-center"><h2>Add New/Edit Film</h2></div>
-        <form action="" th:action="@{/films/new}" th:object="${sorgum}" method="post" >
-          <input th:if="${id} != null"  th:field="*{sorgum.id}" type="text">
-
+        <form action="" th:action="@{/films/new}" th:object="${sorgum}" method="post">
           <div class="input-group mb-3"><span class="input-group-text">
-                        Film to add:</span><input th:field="*{sorgum.title}" type="text" class="form-control"/>
+                          </span><input th:field="*{id}" type="hidden" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Release date:</span><input th:field="*{sorgum.releaseDate}" type="date" class="form-control"/>
+                        Film to add:</span><input th:field="*{title}" type="text" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Poster url:</span><input th:field="*{sorgum.filmImageUrl}" type="text" class="form-control"/>
+                        Release date:</span><input th:field="*{releaseDate}" type="date" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Poster url:</span><input th:field="*{filmImageUrl}" type="text" class="form-control"/>
           </div>
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
@@ -35,7 +36,7 @@
       <div class="col-lg-6">
         <div class="row align-content-center"><h2>Just a</h2></div>
         <h1>Placeholder</h1>
-     </div>
+      </div>
     </div>
   </div>
 

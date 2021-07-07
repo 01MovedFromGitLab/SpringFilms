@@ -28,8 +28,8 @@ public String newFilmForm(Model model) {
 
 // See earlier versions below
 @PostMapping(value="films/new")
-public String postFilmRequest(Film film) {
-	filmService.register(film);
+public String postFilmRequest(Film sorgum) {
+	filmService.register(sorgum);
 	return "newOrEditFilmForm";
 }
 
