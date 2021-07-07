@@ -17,7 +17,7 @@
       <div class="col-lg-6">
         <div class="row align-content-center"><h2>Add New/Edit Film</h2></div>
         <form action="" th:action="@{/films/new}" th:object="${sorgum}" method="post" >
-          <input  th:field="*{sorgum.id}" type="hidden">
+          <input th:if="${id} != null"  th:field="*{sorgum.id}" type="text">
 
           <div class="input-group mb-3"><span class="input-group-text">
                         Film to add:</span><input th:field="*{sorgum.title}" type="text" class="form-control"/>

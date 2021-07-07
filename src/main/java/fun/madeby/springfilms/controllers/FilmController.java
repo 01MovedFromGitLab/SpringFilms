@@ -18,7 +18,7 @@ public class FilmController {
 	private final FilmService filmService;
 
 // Route Only
-@GetMapping(value="/films/new")
+@GetMapping(value="films/new")
 public String newFilmForm(Model model) {
 	// give view a Film model to map against
 	model.addAttribute("sorgum", new Film());
@@ -27,7 +27,7 @@ public String newFilmForm(Model model) {
 
 
 // See earlier versions below
-@PostMapping(value="/films/new")
+@PostMapping(value="films/new")
 public String postFilmRequest(Film film) {
 	filmService.register(film);
 	return "newOrEditFilmForm";
@@ -41,7 +41,7 @@ public String getEditFilmModel(Model model, @PathVariable Long id) {
 }
 
 // Route & GET
-@GetMapping("/films")
+@GetMapping("films")
 public String allFilmsRequested(Model model) {
 	List<Film> allMyFilms = filmService.retrieveAll();
 	// model is required in order to share with views.
@@ -50,7 +50,7 @@ public String allFilmsRequested(Model model) {
 	return "films";
 }
 
-@GetMapping("/films/{id}")
+@GetMapping("films/{id}")
 public String specificFilmRequested(Model model, @PathVariable Long id) {
 	Film film = filmService.retrieveById(id);
 	model.addAttribute("wigwam", film);
@@ -58,7 +58,7 @@ public String specificFilmRequested(Model model, @PathVariable Long id) {
 	return "filmDetail";
 }
 
-@GetMapping(value = "/films", params = "title")
+@GetMapping(value = "films", params = "title")
 public String searchFilmRequested(Model model,
                                   @RequestParam(name = "title") String titleSearchTerm){
 
