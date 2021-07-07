@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-
+  <div th:if="${(param.title != null)}" class="mb-3">Search results for: "<span th:text="${param.title}"></span>"</div>
 </section>
 <section>
   <div th:each="film : ${kumquat}" class="card mb-3" style="max-width: 540px;">
