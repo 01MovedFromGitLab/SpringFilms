@@ -33,6 +33,13 @@ public String postFilmRequest(Film film) {
 	return "newOrEditFilmForm";
 }
 
+// Edit button from film detail
+@GetMapping("films/{id}/edit")
+public String getEditFilmModel(Model model, @PathVariable Long id) {
+	model.addAttribute("sorgum",(filmService.retrieveById(id)));
+	return "newOrEditFilmForm";
+}
+
 // Route & GET
 @GetMapping("/films")
 public String allFilmsRequested(Model model) {
