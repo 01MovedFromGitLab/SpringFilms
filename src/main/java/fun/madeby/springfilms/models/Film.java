@@ -22,7 +22,7 @@ public class Film {
 	@Column(name = "Title", columnDefinition = "VARCHAR(100) NOT NULL")
 	private String title;
 	@Column(name = "ReleaseDate", columnDefinition = "DATE NOT NULL")
-	@DateTimeFormat(pattern = "yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate releaseDate;
 	// Dominant side
 	@ManyToMany
