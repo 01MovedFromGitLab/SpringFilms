@@ -21,7 +21,9 @@ public class FilmController {
 
 // Route Only
 @GetMapping(value="/films/new")
-public String newFilmForm() {
+public String newFilmForm(Model model) {
+	// give view a Film model to map against
+	model.addAttribute("sorgum", new Film());
 	return "newFilmForm";
 }
 
