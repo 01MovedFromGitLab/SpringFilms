@@ -16,8 +16,14 @@ import java.util.List;
 public class FilmController {
 	private final FilmService filmService;
 
+// Route Only
+@GetMapping(value="/films/newFilmForm")
+public String newFilmForm() {
+	return "newFilmForm";
+}
 
 
+// Route & Request
 @GetMapping("/films")
 public String allFilmsRequested(Model model) {
 	List<Film> allMyFilms = filmService.retrieveAll();
@@ -43,5 +49,6 @@ public String searchFilmRequested(Model model,
 	model.addAttribute("kumquat", searchTermFilms);
 	return "films";
 }
+
 
 }
