@@ -26,7 +26,7 @@ public String newFilmForm() {
 }
 
 // POST how you'd expect to do it.
-@PostMapping(value="/films/new")
+/*@PostMapping(value="/films/new")
 public String postFilmRequested(Model model,
                                 @RequestParam String title,
                                 @RequestParam("releaseYear") String releaseYear,
@@ -37,6 +37,16 @@ public String postFilmRequested(Model model,
 	newFilm.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
 	newFilm.setFilmImageUrl(filmImageUrl);
 	filmService.register(newFilm);
+	return "newFilmForm";
+}*/
+
+// POST how Spring lets you do it:
+@PostMapping(value="/films/new")
+public String postFilmRequest(Film film,
+                              @RequestParam("releaseYear") String releaseYear) {
+	int year = Integer.parseInt(releaseYear);
+	film.setReleaseDate(LocalDate.of(year, Month.JANUARY, 1));
+	filmService.register(film);
 	return "newFilmForm";
 }
 
