@@ -9,7 +9,9 @@
 <header>
   <div th:replace="fragments/header.html::header"></div>
 </header>
+<body>
 
+<section>
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -29,9 +31,8 @@
     </div>
   </div>
 </div>
-
-
-<body>
+</section>
 
 </body>
+<th:block th:include="fragments/cdn.html :: script-bs"></th:block>
 </html>

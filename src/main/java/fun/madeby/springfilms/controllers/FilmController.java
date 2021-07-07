@@ -41,9 +41,7 @@ public String searchFilmRequested(Model model,
 
 	List<Film>	searchTermFilms = filmService.searchFilms(titleSearchTerm);
 	model.addAttribute("kumquat", searchTermFilms);
-
 	return "films";
-
 }
 
 }
