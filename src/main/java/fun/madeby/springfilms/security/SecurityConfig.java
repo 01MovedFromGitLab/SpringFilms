@@ -24,8 +24,8 @@ protected void configure(HttpSecurity http) throws Exception {
 		.antMatchers("/**/edit", "/**/new").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET, "/", "/**").permitAll()
 		.and()
-		.formLogin();
-		//.loginPage("/login").permitAll();
+		.formLogin()
+		.loginPage("/login").permitAll();
 
 }
 

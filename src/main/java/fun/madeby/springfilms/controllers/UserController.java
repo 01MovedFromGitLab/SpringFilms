@@ -1,4 +1,3 @@
-/*
 package fun.madeby.springfilms.controllers;
 
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -18,4 +17,4 @@ public class UserController {
 		return "redirect:/";
 	}
 
-}*/
+}
