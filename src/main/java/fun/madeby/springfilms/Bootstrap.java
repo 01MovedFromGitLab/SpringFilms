@@ -23,7 +23,7 @@ public class Bootstrap {
 	private final ActorService actorService;
 
 // Currently switched off
-//@PostConstruct
+@PostConstruct
 	public void init(){
 		// Make Actors
 		List<Actor> oldActors = new ArrayList<>(Arrays.asList(
