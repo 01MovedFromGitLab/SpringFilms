@@ -25,7 +25,9 @@ protected void configure(HttpSecurity http) throws Exception {
 		.antMatchers(HttpMethod.GET, "/", "/**").permitAll()
 		.and()
 		.formLogin()
-		.loginPage("/login").permitAll();
+		.loginPage("/login")
+		//.usernameParameter("email") required if you want email, not username
+		.permitAll();
 
 }
 
