@@ -35,7 +35,7 @@ public String postFilmRequest(Film sorgum, BindingResult br) {
 		return"newOrEditFilmForm";
 	} else {
 		filmService.register(sorgum);
-		return "home";
+		return "redirect:/films";
 	}
 }
 
