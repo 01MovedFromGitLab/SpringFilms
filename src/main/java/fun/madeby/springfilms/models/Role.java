@@ -15,6 +15,7 @@ public class Role {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
+@Column(name="Name", columnDefinition = "VARCHAR(50) UNIQUE NOT NULL")
 private String name;
 // Sub side
 @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)

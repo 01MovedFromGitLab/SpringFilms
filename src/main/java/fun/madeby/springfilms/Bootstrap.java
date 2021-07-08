@@ -2,7 +2,9 @@ package fun.madeby.springfilms;
 
 import fun.madeby.springfilms.models.Actor;
 import fun.madeby.springfilms.models.Film;
+import fun.madeby.springfilms.models.Role;
 import fun.madeby.springfilms.models.User;
+import fun.madeby.springfilms.repositories.RoleRepository;
 import fun.madeby.springfilms.services.ActorService;
 import fun.madeby.springfilms.services.FilmService;
 import fun.madeby.springfilms.services.UserService;
@@ -24,6 +26,7 @@ public class Bootstrap {
 	private final FilmService filmService;
 	private final ActorService actorService;
 	private final UserService userService;
+	private final RoleRepository roleRepo;
 
 // Currently switched off
 @PostConstruct
@@ -53,6 +56,12 @@ public class Bootstrap {
 		film02.setFilmImageUrl("https://www.dropbox.com/s/71nhfcvahmbwa0e/Oldboy.jpg?raw=1");
 		filmService.register(film02);
 
+		Role userRole = new Role();
+		userRole.setName("USER");
+		roleRepo.save(userRole);
+		Role adminRole = new Role();
+		adminRole.setName("ADMIN");
+		roleRepo.save(adminRole);
 		User gram = new User();
 		gram.setUsername("gram");
 		gram.setPassword("asdf1234%");
