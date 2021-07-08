@@ -28,8 +28,8 @@ public class Bootstrap {
 	private final UserService userService;
 	private final RoleRepository roleRepo;
 
-// Currently switched off
-@PostConstruct
+// // to turn off @PostConstruct
+//@PostConstruct
 	public void init(){
 		// Make Actors
 		List<Actor> oldActors = new ArrayList<>(Arrays.asList(
