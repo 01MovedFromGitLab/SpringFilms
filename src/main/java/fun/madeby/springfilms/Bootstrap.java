@@ -26,24 +26,29 @@ public class Bootstrap {
 //@PostConstruct
 	public void init(){
 		// Make Actors
-		List<Actor> actors = new ArrayList<>(Arrays.asList(
-			new Actor("Robert DeNiro", "https://loremflickr.com/320/240"),
-			new Actor("Al Pacino",  "https://loremflickr.com/320/240")
+		List<Actor> oldActors = new ArrayList<>(Arrays.asList(
+			new Actor("Choi Min-sik", "https://www.dropbox.com/s/kmisfdcic103usb/220px-Choi_Min-sik.jpg?raw=1"),
+			new Actor("Kang Hye-jung",  "https://www.dropbox.com/s/iju6rh1ad11zk9i/Kang_Hye-jung_%282012%2C_cropped%29.jpg?raw=1")
 		));
-		actorService.register(actors);
+		List<Actor> aTasteActors = new ArrayList<>(Arrays.asList(
+			new Actor("Tomokazu Miura", "https://www.dropbox.com/s/tychmxlwv8bz84a/Tomokazu_Miura.jpg?raw=1"),
+			new Actor("Tadanobu Asano",  "https://www.dropbox.com/s/29zajzbewjf7ice/220px-Tadanobu_Asano_2011_%28cropped%29.jpg?raw=1")
+		));
+		actorService.register(aTasteActors);
+		actorService.register(oldActors);
 		// Make Films
-		Film myFilm = new Film();
-		myFilm.setTitle("The Lord of the Rings: The Return of the King");
-		myFilm.setReleaseDate(LocalDate.of(2003, Month.NOVEMBER, 1));
-		myFilm.setFilmImageUrl("https://loremflickr.com/320/240");
-		filmService.register(myFilm);
-		Film myOtherFilm = new Film();
-		myOtherFilm.setTitle("Heat");
-		myOtherFilm.setReleaseDate(LocalDate.of(1996, Month.FEBRUARY, 14));
-		myOtherFilm.addActors(actors);
-		myOtherFilm.setFilmImageUrl("https://loremflickr.com/320/240");
-		filmService.register(myOtherFilm);
-
+		Film film01 = new Film();
+		film01.setTitle("A Taste of Tea");
+		film01.setReleaseDate(LocalDate.of(2004, Month.JULY, 17));
+		film01.setFilmImageUrl("https://www.dropbox.com/s/gi3m3bega2qm069/ATasteOfTea.jpg?raw=1");
+		film01.addActors(aTasteActors);
+		filmService.register(film01);
+		Film film02 = new Film();
+		film02.setTitle("Oldboy");
+		film02.setReleaseDate(LocalDate.of(2003, Month.NOVEMBER, 21));
+		film02.addActors(oldActors);
+		film02.setFilmImageUrl("https://www.dropbox.com/s/71nhfcvahmbwa0e/Oldboy.jpg?raw=1");
+		filmService.register(film02);
 
 	}
 
