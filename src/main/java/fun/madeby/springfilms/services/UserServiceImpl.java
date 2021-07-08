@@ -22,9 +22,8 @@ private final PasswordEncoder pwdEncoder;
 public void register(User user) {
 	String encodedPassword = pwdEncoder.encode(user.getPassword());
 	user.setPassword(encodedPassword);
-	user.addRole(roleRepo.findByName("USER"));
+	//user.addRole(roleRepo.findByName("USER")); // Be sure to add role prior to sending
 	userRepo.save(user);
-
 }
 
 @Override

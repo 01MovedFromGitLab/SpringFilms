@@ -65,8 +65,13 @@ public class Bootstrap {
 		User gram = new User();
 		gram.setUsername("gram");
 		gram.setPassword("asdf1234%");
+		gram.addRole(userRole);
 		userService.register(gram);
-
+		User henry = new User();
+		henry.setUsername("henry");
+		henry.setPassword("asdf1234%");
+		henry.addRole(adminRole);
+		userService.register(henry);
 	}
 
 
