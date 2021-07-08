@@ -25,6 +25,7 @@ protected void configure(HttpSecurity http) throws Exception {
 		.antMatchers(HttpMethod.GET, "/", "/**").permitAll()
 		.and()
 		.formLogin();
+		//.loginPage("/login").permitAll();
 
 }
 
