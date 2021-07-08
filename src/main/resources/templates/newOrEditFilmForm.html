@@ -17,8 +17,10 @@
       <div class="col-lg-6">
         <div class="row align-content-center"><h2>Add New/Edit Film</h2></div>
         <form action="" th:action="@{/films/new}" th:object="${sorgum}" method="post">
-          <div class="input-group mb-3"><span class="input-group-text">
-                          </span><input th:field="*{id}" type="hidden" class="form-control"/>
+          <p th:if="${#fields.hasAnyErrors()}" class="input-error">There was an error in the input</p>
+
+          <div class="input-group mb-3" type="hidden">
+                          <input th:field="*{id}" type="hidden" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
                         Film to add:</span><input th:field="*{title}" type="text" class="form-control"/>

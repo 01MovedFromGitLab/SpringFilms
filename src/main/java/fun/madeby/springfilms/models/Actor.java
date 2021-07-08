@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,10 +18,12 @@ public class Actor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank
 	@Column(name = "Name", columnDefinition = "VARCHAR(100) NOT NULL")
 	private String name;
 	@ManyToMany(mappedBy = "cast", fetch = FetchType.EAGER)
 	private Set<Film> films = new HashSet<>();
+	@NotBlank
 	@Column(name="MugShotUrl", columnDefinition = "VARCHAR(250)")
 	private String mugShotUrl;
 

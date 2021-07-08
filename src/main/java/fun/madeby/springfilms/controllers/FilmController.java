@@ -5,6 +5,7 @@ import fun.madeby.springfilms.services.FilmService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,23 +21,29 @@ public class FilmController {
 // Route Only
 @GetMapping(value="films/new")
 public String newFilmForm(Model model) {
-	// give view a Film model to map against
-	model.addAttribute("sorgum", new Film());
+	// give view a Film model to map against explicit and long code version as bugs!
+	Film sorgum = new Film();
+	model.addAttribute("sorgum", sorgum);
 	return "newOrEditFilmForm";
 }
 
 
 // See earlier versions below
 @PostMapping(value="films/new")
-public String postFilmRequest(Film sorgum) {
-	filmService.register(sorgum);
-	return "newOrEditFilmForm";
+public String postFilmRequest(Film sorgum, BindingResult br) {
+	if(br.hasErrors()) {
+		return"newOrEditFilmForm";
+	} else {
+		filmService.register(sorgum);
+		return "home";
+	}
 }
 
 // Edit button from film detail
 @GetMapping("films/{id}/edit")
 public String getEditFilmModel(Model model, @PathVariable Long id) {
-	model.addAttribute("sorgum",(filmService.retrieveById(id)));
+	Film sorgum = filmService.retrieveById(id);
+	model.addAttribute("sorgum", sorgum);
 	return "newOrEditFilmForm";
 }
 
