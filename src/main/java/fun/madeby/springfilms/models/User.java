@@ -16,11 +16,17 @@ public class User {
 private Long id;
 private String username;
 private String password;
-// I find this strange, no join columns just @ManyToMany on a HashSet, first time I've seen.
+// Dominant side
 @ManyToMany
+@JoinTable(name = "User_Role",
+				joinColumns = @JoinColumn(name = "user_id"),
+				inverseJoinColumns = @JoinColumn(name = "role_id"))
 private Set<Role> roles = new HashSet<>();
 
 public void addRole(Role role) {
 	this.roles.add(role);
+	if(!role.getUsers().contains(this)) {
+		role.addUser(this);
+	}
 }
 }
