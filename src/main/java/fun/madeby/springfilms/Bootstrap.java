@@ -2,8 +2,10 @@ package fun.madeby.springfilms;
 
 import fun.madeby.springfilms.models.Actor;
 import fun.madeby.springfilms.models.Film;
+import fun.madeby.springfilms.models.User;
 import fun.madeby.springfilms.services.ActorService;
 import fun.madeby.springfilms.services.FilmService;
+import fun.madeby.springfilms.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,7 @@ import java.util.List;
 public class Bootstrap {
 	private final FilmService filmService;
 	private final ActorService actorService;
+	private final UserService userService;
 
 // Currently switched off
 @PostConstruct
@@ -49,6 +52,11 @@ public class Bootstrap {
 		film02.addActors(oldActors);
 		film02.setFilmImageUrl("https://www.dropbox.com/s/71nhfcvahmbwa0e/Oldboy.jpg?raw=1");
 		filmService.register(film02);
+
+		User gram = new User();
+		gram.setUsername("gram");
+		gram.setPassword("asdf1234%");
+		userService.register(gram);
 
 	}
 
