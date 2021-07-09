@@ -21,10 +21,11 @@
           </li>
           <li sec:authorize="isAuthenticated()" class="nav-item">
             <a class="btn btn-primary action-button mx-2" th:href="@{'/my-profile'}">Profile</a>
+<!--            <a class="btn btn-primary action-button mx-2" th:href="@{'/my-profile'}" th:text="{#authentication.name}">name</a>-->
           </li>
           <li sec:authorize="isAuthenticated()" class="nav-item">
             <form method="post" th:action="@{/logout}">
-              <button class="btn btn-light action-button mx-2" type="submit">Sign out</button>
+              <button class="btn btn-light action-button mx-2" type="submit"  >Log out</button>
             </form>
           </li>
         </ul>
