@@ -17,11 +17,14 @@
             <a class="btn btn-primary action-button" th:href="@{'/register'}">Register</a>
           </li>
           <li sec:authorize="!isAuthenticated()" class="nav-item">
-            <a class="btn btn-primary action-button" th:href="@{'/login'}">Log in</a>
+            <a class="btn btn-primary action-button mx-2" th:href="@{'/login'}">Log in</a>
+          </li>
+          <li sec:authorize="isAuthenticated()" class="nav-item">
+            <a class="btn btn-primary action-button mx-2" th:href="@{'/my-profile'}">Profile</a>
           </li>
           <li sec:authorize="isAuthenticated()" class="nav-item">
             <form method="post" th:action="@{/logout}">
-              <button class="btn btn-light action-button" type="submit">Sign out</button>
+              <button class="btn btn-light action-button mx-2" type="submit">Sign out</button>
             </form>
           </li>
         </ul>
