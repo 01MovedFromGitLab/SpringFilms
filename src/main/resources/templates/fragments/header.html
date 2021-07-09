@@ -12,12 +12,17 @@
           <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">Home</a></li>
           <li class="nav-item"><a class="nav-link active" th:href="@{'/films'}">Films</a></li>
           <li class="nav-item"><a class="nav-link active" th:href="@{'/actors'}">Actors</a></li>
-          <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">tbc</a></li>
-          <li class="nav-item"><a class="nav-link active" th:href="@{'/'}">tbc2</a></li>
+          <li class="nav-item"><a class="btn btn-primary action-button" th:href="@{'/register'}">Register</a></li>
+          <li class="nav-item"><a class="btn btn-primary action-button" th:href="@{'/login'}">Log in</a></li>
+          <li class="nav-item">
+            <form method="post" th:action="@{/logout}">
+              <button class="btn btn-light action-button" type="submit">Sign out</button>
+            </form>
+          </li>
         </ul>
-        <span class="navbar-text actions">
-          <a class="btn btn-primary action-button" role="button"  th:href="@{/login}">Log In</a>
-          <a class="btn btn-light action-button" role="button" th:href="@{/register}">Register</a></span>
+<!--        <span class="navbar-text actions">-->
+<!--          <a class="btn btn-primary action-button" role="button"  th:href="@{/login}">Log In</a>-->
+<!--          <a class="btn btn-light action-button" role="button" th:href="@{/register}">Register</a></span>-->
       </div>
     </div>
   </nav>

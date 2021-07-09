@@ -27,7 +27,9 @@ protected void configure(HttpSecurity http) throws Exception {
 		.formLogin()
 		.loginPage("/login")
 		//.usernameParameter("email") required if you want email, not username
-		.permitAll();
+		.permitAll()
+		.and()
+		.logout().logoutUrl("/logout").permitAll();
 
 }
 
