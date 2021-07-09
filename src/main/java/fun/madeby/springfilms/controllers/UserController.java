@@ -28,14 +28,15 @@ public class UserController {
 
 	@GetMapping("register")
 	public String registerForm(Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		//The below did not work
+		/*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if(authentication != null) // eventually the button wont even be shown and this will be redundant
-			return "";
+			return "home";*/
 		model.addAttribute("inkBlot", new User());
 		return "register";
 	}
 
-	@PostMapping("/register")
+	@PostMapping("register")
 	public String registerPost(User inkBlot, BindingResult bindingResult) {
 
 		if(bindingResult.hasErrors())

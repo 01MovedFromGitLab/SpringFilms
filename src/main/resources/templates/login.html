@@ -8,18 +8,25 @@
   <th:block th:include="fragments/cdn.html :: head-bs"></th:block>
   <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
 </head>
+<header>
+  <div th:replace="fragments/header.html::header"></div>
+</header>
+
 <body class="login-body">
 <section class="login-dark">
   <form th:action="@{/login}" method="post">
     <h2 class="visually-hidden">Login Form</h2>
-<!--    <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>-->
+    <!--    <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>-->
     <div class="mb-3"><input type="text" class="form-control" id="username" name="username"
-                             placeholder="username" required autofocus /></div>
+                             placeholder="username" required autofocus/></div>
     <div class="mb-3"><input type="password" class="form-control" id="password" name="password"
-                             placeholder="password" required /></div>
-    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit"
-                              value="Login">Log In</button></div>
-<!--    <a class="forgot" th:ref="#">Forgot your email or password?</a>-->
+                             placeholder="password" required/></div>
+    <div class="mb-3">
+      <button class="btn btn-primary d-block w-100" type="submit"
+              value="Login">Log In
+      </button>
+    </div>
+    <!--    <a class="forgot" th:ref="#">Forgot your email or password?</a>-->
   </form>
 </section>
 </body>

@@ -1,0 +1,36 @@
+
+.tutorial-wrapper {
+    width: 100%;
+}
+
+.tutorial-wrapper form {
+    background-color: #ffc;
+    border: 1px solid #cc9;
+    padding: 10px;
+    font-family: verdana, serif;
+    width: 75%;
+    font-size: 1em;
+}
+
+.field-wrapper {
+    margin: 2px 0 2px 0;
+    padding: 0;
+}
+
+.tutorial-wrapper label {
+    float: left;
+    text-align: right;
+    margin: 0 5px 0 0;
+    width: 30%;
+}
+
+.tutorial-wrapper input {
+    width: 200px;
+    border: 1px solid #cc9;
+}
+
+.confirm-message {
+    margin: 0;
+    padding: 0;
+    font-size: .8em;
+}
