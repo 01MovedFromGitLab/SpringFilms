@@ -29,7 +29,7 @@ public class Bootstrap {
 	private final RoleRepository roleRepo;
 
 // // to turn off @PostConstruct
-@PostConstruct
+//@PostConstruct
 	public void init(){
 		// Make Actors
 		List<Actor> oldActors = new ArrayList<>(Arrays.asList(
