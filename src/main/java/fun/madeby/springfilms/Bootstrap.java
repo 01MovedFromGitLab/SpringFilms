@@ -29,7 +29,7 @@ public class Bootstrap {
 	private final RoleRepository roleRepo;
 
 // // to turn off @PostConstruct
-//@PostConstruct
+@PostConstruct
 	public void init(){
 		// Make Actors
 		List<Actor> oldActors = new ArrayList<>(Arrays.asList(
@@ -65,11 +65,20 @@ public class Bootstrap {
 		User gram = new User();
 		gram.setUsername("gram");
 		gram.setPassword("asdf1234%");
+		gram.setAvatarUrl("abc");
+		gram.setFullName("Gram Z");
+		gram.setCountry("England");
+		gram.setMovieQuote("I love the smell of napalm in the morning.");
 		gram.addRole(userRole);
 		userService.register(gram);
 		User henry = new User();
 		henry.setUsername("henry");
 		henry.setPassword("asdf1234%");
+		henry.setAvatarUrl("abc");
+		henry.setFullName("Henry the Furrrzt");
+		henry.setCountry("England");
+		henry.setMovieQuote("Cha Cha: They call me Cha Cha because I'm the best dancer at St. Bernadette's." +
+			                    "\nFrenchy: With the worst reputation.");
 		henry.addRole(adminRole);
 		userService.register(henry);
 	}
