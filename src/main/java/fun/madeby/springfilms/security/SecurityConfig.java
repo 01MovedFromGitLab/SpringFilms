@@ -22,6 +22,7 @@ protected void configure(HttpSecurity http) throws Exception {
 	http
 		.authorizeRequests()
 		.antMatchers("/**/edit", "/**/new").hasRole("ADMIN")
+		.antMatchers("/my-profile/**").authenticated()
 		.antMatchers(HttpMethod.GET, "/", "/**").permitAll()
 		.and()
 		.formLogin()
