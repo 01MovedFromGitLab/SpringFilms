@@ -17,14 +17,11 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="row align-content-center">
-         <h2>Edit Your Profile</h2>
-        </div>
-        <div class="row align-content-center">
-          <h5>Current avatar:</h5>
+          <h2>Current avatar:</h2>
         </div>
         <div class="row align-content-center">
           <img
-          src="https://www.dropbox.com/s/gi3m3bega2qm069/ATasteOfTea.jpg?raw=1"
+          th:src="${profile.avatarUrl}"
           alt="..."
           class="img-fluid"/>
         </div>
@@ -39,7 +36,7 @@
             <input th:field="*{id}" type="hidden" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Avatar url:</span><input th:field="*{avatarUrl}" type="text" class="form-control"/>
+                        Avatar url</span><input th:field="*{avatarUrl}" type="text" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
                         Username</span><input th:field="*{username}" type="text" class="form-control"/>
@@ -48,13 +45,13 @@
                         Full name</span><input th:field="*{fullName}" type="text" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Encrypted password:</span><input th:field="*{password}" type="text" class="form-control"/>
+                        Enter new password</span><input th:field="*{password}" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
                         Country:</span><input th:field="*{country}" type="text" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
-                        Movie quote:</span><input th:field="*{movieQuote}" type="date" class="form-control"/>
+                        Movie quote:</span><input th:field="*{movieQuote}" type="text" class="form-control"/>
           </div>
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
