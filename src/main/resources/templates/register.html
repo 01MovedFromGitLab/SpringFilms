@@ -10,9 +10,8 @@
   <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
   <link rel="stylesheet" th:href="@{~/css/register.css}">
 </head>
-<header>
   <div th:replace="fragments/header.html::header"></div>
-</header>
+
 <body>
 <form method="post" th:action="@{/register}" th:object="${inkBlot}">
   <label for="username">Username</label>
