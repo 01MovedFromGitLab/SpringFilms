@@ -15,7 +15,8 @@
 <section>
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
-<!--      <a  th:href="@{'/films/' + ${user.id} + '/edit'}" class="btn btn-primary btn-lg">Edit</a>-->
+      <a  th:href="@{'/my-profile/edit'}" class="btn btn-primary btn-lg">Edit</a>
+      </div>
       <div class="col-md-4">
         <img
         th:src="${user.avatarUrl}"
@@ -33,7 +34,6 @@
         </div>
         </div>
       </div>
-    </div>
 </section>
 
 </body>

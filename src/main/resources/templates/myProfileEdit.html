@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+  <th:block th:include="fragments/cdn.html :: head-bs"></th:block>
+  <th:block th:include="fragments/custom.html :: head-css-global"></th:block>
+</head>
+<div th:replace="fragments/header.html::header"></div>
+
+<body>
+<section>
+  <div id="content-wrapper" class="d-flex flex-column mt-3 mb-3">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row align-content-center">
+         <h2>Edit Your Profile</h2>
+        </div>
+        <div class="row align-content-center">
+          <h5>Current avatar:</h5>
+        </div>
+        <div class="row align-content-center">
+          <img
+          src="https://www.dropbox.com/s/gi3m3bega2qm069/ATasteOfTea.jpg?raw=1"
+          alt="..."
+          class="img-fluid"/>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="row align-content-center"><h2>Edit Your Profile</h2></div>
+        <form action="" th:action="@{/my-profile/edit}" th:object="${profile}" method="post">
+          <p th:if="${#fields.hasAnyErrors()}" class="input-error">There was an error in the input</p>
+<!--id held but hidden cannot be edited, but needed in model for update.-->
+          <div class="input-group mb-3" type="hidden">
+            <input th:field="*{id}" type="hidden" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Avatar url:</span><input th:field="*{avatarUrl}" type="text" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Username</span><input th:field="*{username}" type="text" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Full name</span><input th:field="*{fullName}" type="text" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Encrypted password:</span><input th:field="*{password}" type="text" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Country:</span><input th:field="*{country}" type="text" class="form-control"/>
+          </div>
+          <div class="input-group mb-3"><span class="input-group-text">
+                        Movie quote:</span><input th:field="*{movieQuote}" type="date" class="form-control"/>
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+<th:block th:include="fragments/cdn.html :: script-bs"></th:block>
+</html>

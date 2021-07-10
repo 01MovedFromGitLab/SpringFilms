@@ -19,13 +19,12 @@ private final UserService userService;
 
 //@GetMapping("myprofile")
 //public String myProfileView(Model model, Principal principal) {
-//	System.out.println(principal.getName());
 //	User loggedInUser = userService.retrieveByUsername(principal.getName());
 //	model.addAttribute("user", loggedInUser);
 //	return "myProfile"; // shows user/myProfile in text which does not exist.
 //}
 
-@GetMapping("/my-profile")
+@GetMapping("my-profile")
 public String myProfileView(Model model){
 	SecurityContext secContext = SecurityContextHolder.getContext();
 	Authentication auth = secContext.getAuthentication();
@@ -33,6 +32,13 @@ public String myProfileView(Model model){
 	User loggedInUser = userService.retrieveByUsername(username);
 	model.addAttribute("user", loggedInUser);
 	return "myProfile";
+}
+
+@GetMapping("my-profile/edit")
+public String myProfileEditView(Model model, Principal principal) {
+	User userProfile = userService.retrieveByUsername(principal.getName());
+	model.addAttribute("profile", userProfile );
+	return "myProfileEdit";
 }
 
 }
