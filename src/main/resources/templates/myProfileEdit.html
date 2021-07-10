@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+>
 <head>
   <meta charset="UTF-8">
   <title>My Profile</title>
@@ -31,9 +31,13 @@
         <div class="row align-content-center"><h2>Edit Your Profile</h2></div>
         <form action="" th:action="@{/my-profile/edit}" th:object="${profile}" method="post">
           <p th:if="${#fields.hasAnyErrors()}" class="input-error">There was an error in the input</p>
-<!--id held but hidden cannot be edited, but needed in model for update.-->
+          <!--id held but hidden cannot be edited, but needed in model for update.-->
           <div class="input-group mb-3" type="hidden">
             <input th:field="*{id}" type="hidden" class="form-control"/>
+          </div>
+          <!--Roles held but hidden cannot be edited, but needed in model for update.-->
+          <div class="input-group mb-3" type="hidden">
+            <input th:field="*{roles}" type="hidden" class="form-control"/>
           </div>
           <div class="input-group mb-3"><span class="input-group-text">
                         Avatar url</span><input th:field="*{avatarUrl}" type="text" class="form-control"/>

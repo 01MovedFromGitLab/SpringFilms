@@ -36,6 +36,7 @@ public String myProfileView(Model model){
 	return "myProfile";
 }
 
+
 @GetMapping("my-profile/edit")
 public String myProfileEditView(Model model, Principal principal) {
 	User userProfile = userService.retrieveByUsername(principal.getName());
