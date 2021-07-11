@@ -1,11 +1,11 @@
-.login-body {
+.small-form-body {
     height: 1000px;
     background-size: cover;
     position: relative;
     background: url("static/img/leaves.JPG");
 }
 
-.login-dark {
+.small-form-dark {
     max-width: 320px;
     width: 90%;
     background-color: #1e2833;

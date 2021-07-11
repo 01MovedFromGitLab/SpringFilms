@@ -11,45 +11,58 @@
   <link rel="stylesheet" th:href="@{~/css/register.css}">
 </head>
   <div th:replace="fragments/header.html::header"></div>
-j
-<body>
-<form method="post" th:action="@{/register}" th:object="${inkBlot}">
-  <label for="username">Username</label>
-  <input type="text" id="username" th:field="*{username}" required>
-  <label for="txtNewpassword">Password</label>
-  <input type="password" id="txtNewpassword" onKeyUp="checkPasswordMatch()" th:field="*{password}" required>
-  <label for="txtConfirmpassword">Confirm password</label>
-  <input type="password" id="txtConfirmpassword" onKeyUp="checkPasswordMatch()" required>
+<body class="small-form-body">
+
+<!--Bootstrap version with no validate-->
+<section class="small-form-dark">
+<form th:action="@{/login}" method="post" class="row g-3 needs-validation" novalidate>
+<!--  <div class="col-md-4">-->
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" required>
+    <div class="valid-feedback">
+      Looks good! [could check exists here]
+    </div>
   </div>
-  <div class="registrationFormAlert" id="divCheckPasswordMatch">
+
+<!--  <div class="col-md-4">-->
+  <div class="mb-3">
+    <label for="password" class="form-label">Enter password (Must be 8 characters or more,
+      include one capital, a number or special character)</label>
+    <input type="text" class="form-control" id="password" onkeyup="checkPass()" required
+           pattern="^(?=.*[\d\W])(?=.*[a-z])(?=.*[A-Z]).{8,100}$">
+    <div class="invalid-feedback">
+      Password must have one capital, a number or special character and be 8 characters or
+      longer.
+    </div>
+    <span id="match-message" className="confirm-message"></span>
   </div>
-  <button type="submit" value="register">Submit</button>
+
+<!--  <div class="col-md-6">-->
+  <div class="mb-3">
+    <label for="passwordRepeat" class="form-label">Repeat password</label>
+    <input type="text" class="form-control" id="passwordRepeat" onkeyup="checkPass()" required>
+    <div class="invalid-feedback">
+      Passwords must match.
+    </div>
+  </div>
+
+<!--  <div class="col-12">-->
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 </form>
+</section>
 
 
-<div className="tutorial-wrapper">
-  <form>
-    <div class="field-wrapper">
-      <label For="password2">Password:</label>
-      <input type="password" name="password" id="password2" onKeyUp="checkPass();">
-    </div>
-    <div class="field-wrapper">
-      <label For="confirm2">Confirm Password:</label>
-      <input type="password" name="confirm" id="confirm2" onKeyUp="checkPass();">
-      <span id="confirm-message2" class="confirm-message"></span>
-    </div>
-  </form>
-</div>
+
 
 
 </body>
-<!--<th:block th:include="fragments/cdn.html :: script-bs"></th:block>-->
-<!--<th:block th:include="fragments/custom.html :: js-password-match"></th:block>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
-
 </script>
-<!--<script  src="/js/passwordMatch.js"></script>-->
 <script th:src="@{~/js/passwordMatch.js}"></script>
+<script th:src="@{~/js/formBehaviourPlus.js}"></script>
 </html>
