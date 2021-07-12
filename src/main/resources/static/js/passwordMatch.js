@@ -10,7 +10,7 @@ function checkPass() {
     var bad_color = "#ff6666";
     //Compare the values in the password field
     //and the confirmation field
-        if (password.value === confirm.value && password.value.match("^(?=.*[\d\W])(?=.*[a-z])(?=.*[A-Z]).{8,100}$")) {
+        if (password.value === confirm.value)  {
             //The passwords match.
             //Set the color to the good color and inform
             //the user that they have entered the correct password
