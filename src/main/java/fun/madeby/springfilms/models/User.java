@@ -1,5 +1,6 @@
 package fun.madeby.springfilms.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@JsonIgnoreProperties("roles")
 public class User {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +39,8 @@ private String movieQuote;
 				joinColumns = @JoinColumn(name = "user_id"),
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 private Set<Role> roles = new HashSet<>();
+
+
 
 public void addRole(Role role) {
 	this.roles.add(role);

@@ -1,5 +1,6 @@
 package fun.madeby.springfilms.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@JsonIgnoreProperties("users")
 public class Role {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
